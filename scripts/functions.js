@@ -73,9 +73,16 @@ const showLibraryPage=function(library){
     let mainBlock = document.getElementById("bookContainer");
     let content=" "//erasing previous content
     content="<div><ul class='ulBooks'>"
+    let index=0;
     library.forEach(element => {
         console.log(element.info());
-        content+="<li class='liBooks'>"+element.info()+"</li>"
+        content+="<li class='liBooks'>"
+        content+="<p class='pBooks'>"+element.info()+"</>"
+        content+="<div class='buttons'>"
+        content+="<button class='pButton'>Erase</button>"
+        content+="<button class='pButton'>set</button>"
+        content+="</div>"
+        content+="</li>"
     });
     content+="</ul></div>";   
     mainBlock.innerHTML=content;

@@ -15,6 +15,7 @@ body{
 }
 .liBooks{
     display: flex;
+    flex-direction: column;
     text-decoration: none;
     background: gray;    
     padding-left: 10%;
@@ -25,6 +26,22 @@ body{
     border-radius: 15px;
     width: 200px !important;
     height: 100px !important;
+    
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: gray;
+}
+.pBooks{
+    display:flex;
+}
+.pButton{
+    display:flex;
+    border-radius: 15px;
+    background-color: rgb(228, 228, 136);
+    margin-bottom: 10px;
 }
 .card{
     display:flex;
@@ -72,7 +89,7 @@ label{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    background: rgb(255, 51, 0);
+    background: transparent;
 }
 .formButton{
     display: flex;
