@@ -112,13 +112,45 @@ const showLibraryPage=function(library){
         if(element.getRead()==false)
         {content+="<button class='pButton' id='read_"+index+"'>Read</button>"}
         else
-        {content+="<button class='pButton' id='unread_"+index+"'>unRead</button>"}
+        {content+="<button class='pButton' id='unRead_"+index+"'>unRead</button>"}
         content+="</div>";
         content+="</li>";
-        index++;
+        index++;    
     });
-    content+="</ul></div>";   
+    content+="</ul></div>";       
     mainBlock.innerHTML=content;
+    //adding listeners
+    for (let d=0;d<index;d++)
+    {
+     let localErase=document.getElementById("erase_"+d);
+        localErase.addEventListener("click",()=>{    
+                console.log("clicked: erase_"+d)
+            })            
+    
+    let localRead=document.getElementById("read_"+d);
+    if(localRead!=null)
+    {
+    
+        localRead.addEventListener("click",()=>{    
+                console.log("clicked: read_"+d)
+                myLibrary[d].setRead();
+                showLibraryPage(myLibrary);
+            })            
+    }    
+
+    let localUnRead=document.getElementById("unRead_"+d);
+    if(localUnRead!=null)
+    {
+        localUnRead.addEventListener("click",()=>{    
+            console.log("clicked: unRead_"+d)
+            myLibrary[d].resetRead();
+            showLibraryPage(myLibrary);
+        })                    
+    }
+    
+
+    }        
+
 }
 
 const openForm=function(){
