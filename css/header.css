@@ -1,0 +1,33 @@
+
+.header{
+    display: grid;
+    resize: both;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows:100%;
+    background: rgb(253, 36, 36);
+}
+.mylogo{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.navLinks{
+    display: grid;
+    resize: both;
+}
+.navLinkLocal{
+    display: grid;
+    resize: both;
+    grid-template-columns: 50% 50%;
+    grid-template-rows:100%;
+}
+.headerLink{
+    display: grid;
+    resize: both;
+    text-decoration: none;
+}
+.navLinkLocal2{
+    display: grid;
+    resize: both;
+    text-decoration: none;
+}
