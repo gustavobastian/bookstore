@@ -35,7 +35,7 @@ body{
 .main{
     display:flex;
     flex-direction: column;
-    height: 800px;
+    height: auto;
     width: 100%;
     background:black;
     color:white;
