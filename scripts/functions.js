@@ -125,6 +125,20 @@ const showLibraryPage=function(library){
      let localErase=document.getElementById("erase_"+d);
         localErase.addEventListener("click",()=>{    
                 console.log("clicked: erase_"+d)
+
+                let newArray=[];
+                for (let f=0;f<index;f++)
+                {
+                    if(f!=d)
+                    {
+                        newArray.push(myLibrary[f]);
+                    }
+                }
+                myLibrary=[];
+                myLibrary=newArray;
+                showLibraryPage(myLibrary);
+
+
             })            
     
     let localRead=document.getElementById("read_"+d);
