@@ -36,6 +36,8 @@ body{
 }
 .pBooks{
     display:flex;
+    font-size: 12px;
+    margin:3px;
 }
 .pButton{
     display:flex;

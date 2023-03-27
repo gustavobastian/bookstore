@@ -32,6 +32,14 @@ Book.prototype.info=function(){
     return this.title +" by "+this.author+", "+this.pages+" pages, "+stringLocal
 }
 /**
+ * Getting book title
+ * @returns string with book title
+ */
+Book.prototype.getTitle=function(){
+    
+    return this.title 
+}
+/**
  * writes false in book.read property
  */
 Book.prototype.resetRead=function(){
@@ -42,6 +50,24 @@ Book.prototype.resetRead=function(){
  */
 Book.prototype.setRead=function(){
     this.read=true;
+}
+/**
+ * writes true in book.read property
+ */
+Book.prototype.getRead=function(){
+    return this.read;
+}
+/**
+ * writes true in book.author property
+ */
+Book.prototype.getAuthor=function(){
+    return this.author;
+}
+/**
+ * writes true in book.pages property
+ */
+Book.prototype.getPages=function(){
+    return this.pages;
 }
 /**
  * adds a book to the library array
@@ -77,12 +103,19 @@ const showLibraryPage=function(library){
     library.forEach(element => {
         console.log(element.info());
         content+="<li class='liBooks'>"
-        content+="<p class='pBooks'>"+element.info()+"</>"
+        //content+="<p class='pBooks'>"+element.info()+"</p>"
+        content+="<p class='pBooks'>Author: "+element.getAuthor()+"</p>"
+        content+="<p class='pBooks'>Title: "+element.getTitle()+"</p>"
+        content+="<p class='pBooks'>Pages: "+element.getPages()+"</p>"
         content+="<div class='buttons'>"
-        content+="<button class='pButton'>Erase</button>"
-        content+="<button class='pButton'>set</button>"
-        content+="</div>"
-        content+="</li>"
+        content+="<button class='pButton' id='erase_"+index+"'>Erase</button>"
+        if(element.getRead()==false)
+        {content+="<button class='pButton' id='read_"+index+"'>Read</button>"}
+        else
+        {content+="<button class='pButton' id='unread_"+index+"'>unRead</button>"}
+        content+="</div>";
+        content+="</li>";
+        index++;
     });
     content+="</ul></div>";   
     mainBlock.innerHTML=content;
@@ -107,7 +140,7 @@ const openForm=function(){
 
     let submitButton=document.getElementById("submitButton");
     submitButton.addEventListener("click",()=>{    
-        getInfo();        
+        getInformation();        
         closeForm();
     })
     let cancelButton=document.getElementById("cancelButton");
@@ -117,7 +150,7 @@ const openForm=function(){
     });
 }
 
-const getInfo=function(event){    
+const getInformation=function(event){    
     console.log("here")       
     let title = (document.getElementById("bookTitle")).value;
     let author = (document.getElementById("author")).value;
